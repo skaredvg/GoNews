@@ -11,6 +11,12 @@ type Post struct {
 	PublishedAt int64
 }
 
+// Author - автор публикации.
+type Author struct {
+	ID   int
+	Name string
+}
+
 // Interface задаёт контракт на работу с БД.
 type Interface interface {
 	Posts() ([]Post, error) // получение всех публикаций

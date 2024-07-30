@@ -8,7 +8,8 @@ import (
 	"skillfactory/GoNews/pkg/storage"
 
 	//database "skillfactory/GoNews/pkg/storage/memdb"
-	database "skillfactory/GoNews/pkg/storage/postgres"
+	//database "skillfactory/GoNews/pkg/storage/postgres"
+	database "skillfactory/GoNews/pkg/storage/mongo"
 )
 
 // Сервер GoNews.
@@ -21,10 +22,12 @@ func main() {
 	// Создаём объект сервера.
 	var srv server
 
-	pwd := "passwod_to_database"
-	host := "host_database"
+	//pwd := "passwod_to_database"
+	host := "localhost"
 
-	sqlconn := fmt.Sprintf("postgres://postgres:%s@%s/posts", pwd, host)
+	//sqlconn := fmt.Sprintf("postgres://postgres:%s@%s/posts", pwd, host)
+	sqlconn := fmt.Sprintf("mongodb://%s:27017/", host)
+
 	// Создаём объекты баз данных.
 	//
 	/*	// БД в памяти.
